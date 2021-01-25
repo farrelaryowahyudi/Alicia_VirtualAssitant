@@ -4,7 +4,7 @@ import yaml
 import speech_recognition as sr
 
 from WhiteMatter.SenseCells.tts import tts
-
+from brain import brain
 
 profile = open('profile.yaml')
 profile_data = yaml.safe_load(profile)
@@ -28,5 +28,6 @@ def main():
         print("Alicia could not understand audio")
     except sr.RequestError as e:
         print("Could not request results from Google Speech Recognition service; {0}".format(e))
-    tts(speech_text)
+
+    brain(name, speech_text)
 main()
